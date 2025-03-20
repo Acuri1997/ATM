@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ATM Interface</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ATM Header-->
+      <header class="atm-header">
+        <h1>ATM Interface</h1>
+      </header>
+
+      <!-- Login Screen -->
+      <div id="login-screen" class="screen">
+        <form id="login-form">
+          <h2>Welcome to ATM</h2>
+          <input type="text" id="username" placeholder="Username" required />
+          <input type="password" id="pin" placeholder="PIN" required />
+          <button type="submit">Login</button>
+          <p id="login-error" class="error"></p>
+          <p class="hint">Use username: user, pin: 1234</p>
+        </form>
+      </div>
+
+      <!-- Dashboard Screen -->
+      <div id="dashboard" class="screen">
+        <h2>Welcome, User</h2>
+        <h3>Current Balance: <span id="balance">350 $</span></h3>
+        <div class="actions">
+          <button class="action-btn">Check balance</button>
+          <button class="action-btn" id="deposit-btn">Deposit</button>
+          <button class="action-btn" id="withdraw-btn">Withdraw</button>
+          <button class="action-btn" onclick="openTransactionScreen()">
+            Transaction History
+          </button>
+          <button class="logout-btn">Logout</button>
+        </div>
+      </div>
+
+      <!-- Transaction Screen -->
+      <div id="transaction-screen" class="screen">
+        <h2 id="transaction-title">Transaction</h2>
+        <p>Enter the amount:</p>
+        <input
+          type="number"
+          id="transaction-amount"
+          placeholder="Enter amount"
+        />
+        <button
+          id="confirm-transaction-btn"
+          class="action-btn"
+          onclick="confirmTransaction()"
+        >
+          Confirm
+        </button>
+        <button
+          id="cancel-transaction-btn"
+          class="action-btn"
+          onclick="cancelTransaction()"
+        >
+          Cancel
+        </button>
+        <p id="transaction-error" class="error"></p>
+      </div>
+
+      <!-- Transaction History Screen -->
+      <div id="history-screen" class="screen">
+        <h2>Transaction History</h2>
+        <ul id="history-list"></ul>
+        <h2>User List</h2>
+        <ul id="user-list"></ul>
+        <button id="back-btn">Back</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
